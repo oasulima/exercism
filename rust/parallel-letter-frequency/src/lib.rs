@@ -7,8 +7,6 @@ pub fn frequency(input: &[&'static str], worker_count: usize) -> HashMap<char, u
     let mut result: HashMap<char, usize> = HashMap::new();
     let mut handlers = vec![];
 
-    // let new_input = Arc::new()
-
     for chunk in input.chunks(worker_count) {
         let chunk = chunk.to_owned();
         let handler = thread::spawn(move || {
